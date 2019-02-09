@@ -109,8 +109,8 @@ def create_map(dictionary):
     map.add_child(minimap)
     # to tick/untick the whole group put things in LC and handle them as a single layer
     map.add_child(folium.LayerControl())
-    map.save('./docs/world_map.html')
-    webbrowser.open("./docs/world_map.html")
+    map.save('./docs/index.html')
+    webbrowser.open("./docs/index.html")
 
 
 def convert_to_coordinates(dictionary):
