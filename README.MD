@@ -1,10 +1,3 @@
-Файл README.MD проекту повинен містити:
-
-- інформацію про призначення модуля;
-
-- опис структури html файлу тегів розмітки, які були згенеровані;
-
-- короткий висновок інформацію, яку нам надає така карта
 #World_map
 ######The main aim
 The application visualizes all the locations of the year you want on the world map.
