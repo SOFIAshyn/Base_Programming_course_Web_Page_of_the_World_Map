@@ -1,5 +1,6 @@
-#World_map
-######The main aim
+
+# World_map
+###### The main aim
 The application visualizes all the locations of the year you want on the world map.
 ## Appearance of the site
 To show you how `index.html` looks you can follow this path `./examples` and you will see some pictures of the wed page.
