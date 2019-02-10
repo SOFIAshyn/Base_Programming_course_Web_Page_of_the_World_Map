@@ -36,7 +36,9 @@ def add_markers(dictionary):
     for key in dictionary:
         points = dictionary[key]
         if fg:
-            fg.add_child(folium.Marker(location=[points[0], points[1]], popup=key, icon=folium.Icon()))
+            fg.add_child(
+                folium.Marker(location=[points[0], points[1]], popup=key,
+                              icon=folium.Icon()))
     return fg
 
 
@@ -47,18 +49,24 @@ def add_boundaries():
     Returns population mask to add it to the map
     """
     population_mask = folium.FeatureGroup(name="Population")
-    population_mask.add_child(folium.GeoJson(data=open('./docs/world.json', 'r',
-                                                       encoding='utf-8-sig').read(),
-                                             style_function=lambda x: {'fillColor': '#EE2376'  # pink
-                                             if x['properties']['POP2005'] < 100000
-                                             else '#81DC1A' if 100000 <= x['properties']['POP2005'] < 200000  # green
-                                             else '#B6E80E' if 200000 <= x['properties'][
-                                                 'POP2005'] < 1000000  # light green
-                                             else '#5503E5' if 1000000 <= x['properties']['POP2005'] < 2000000  # purple
-                                             else '#E57703' if 2000000 <= x['properties']['POP2005'] < 9000000  # orange
-                                             else '#0EE896' if 9000000 <= x['properties']['POP2005'] < 15000000  # blue
-                                             else '#E112B5' if 15000000 <= x['properties']['POP2005'] < 20000000  # pink
-                                             else '#3882EC'}))  # dark blue
+    population_mask.add_child(
+        folium.GeoJson(data=open('./docs/world.json', 'r',
+                                 encoding='utf-8-sig').read(),
+                       style_function=lambda x: {'fillColor': '#EE2376'  # pink
+                       if x['properties']['POP2005'] < 100000
+                       else '#81DC1A' if 100000 <= x['properties'][
+                           'POP2005'] < 200000  # green
+                       else '#B6E80E' if 200000 <= x['properties'][
+                           'POP2005'] < 1000000  # light green
+                       else '#5503E5' if 1000000 <= x['properties'][
+                           'POP2005'] < 2000000  # purple
+                       else '#E57703' if 2000000 <= x['properties'][
+                           'POP2005'] < 9000000  # orange
+                       else '#0EE896' if 9000000 <= x['properties'][
+                           'POP2005'] < 15000000  # blue
+                       else '#E112B5' if 15000000 <= x['properties'][
+                           'POP2005'] < 20000000  # pink
+                       else '#3882EC'}))  # dark blue
     return population_mask
 
 
@@ -107,7 +115,8 @@ def create_map(dictionary):
     map.add_child(population_mask)
     map.add_child(clusters)
     map.add_child(minimap)
-    # to tick/untick the whole group put things in LC and handle them as a single layer
+    # to tick/untick the whole group put things
+    # in LC and handle them as a single layer
     map.add_child(folium.LayerControl())
     map.save('./docs/index.html')
     webbrowser.open("./docs/index.html")
@@ -123,9 +132,14 @@ def convert_to_coordinates(dictionary):
     >>> convert_to_coordinates({'Betrayal': 'New Orleans Louisiana USA'})
     {'Betrayal': (29.9536991119385, -90.077751159668)}
     """
-    geolocator = Bing("AomOhTUAKsV-5fu4bzeuBtVlx5VeMi_M86P4gODXuCd6f7S2dquidP7Aj2xtDoS0")
+    geolocator =
+    Bing("AomOhTUAKsV-5fu4bzeuBtVlx5VeMi_M86P4gODXuCd6f7S2dquidP7Aj2xtDoS0")
     dict_coordinates = {}
+    count = 0
     for key in dictionary:
+        count += 1
+        if count == 10:
+            break
         point = dictionary[key]
         try:
             address, (latitude, longitude) = geolocator.geocode(point)
