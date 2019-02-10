@@ -29,7 +29,7 @@ Enter the year: <year>
 You have to enter the year. After that you have to wait a littele bit.
 If the browser will not be opened you have to open `./docs/index.html` with your browser.
 ## Possible errors
-You can meet `geopy.exc.GeocoderQuotaExceeded: HTTP Error 429: Too Many Requests` problem. My advice change the wifi network.
+You can meet `geopy.exc.GeocoderQuotaExceeded: HTTP Error 429: Too Many Requests` or `geopy.exc.GeocoderTimedOut: Service timed out` problems. My advice change the wifi network or use VPN.
 ## Description of the HTML file
 The main file that is in `./docs`
 
