@@ -135,11 +135,7 @@ def convert_to_coordinates(dictionary):
     geolocator = Bing(
         "AomOhTUAKsV-5fu4bzeuBtVlx5VeMi_M86P4gODXuCd6f7S2dquidP7Aj2xtDoS0")
     dict_coordinates = {}
-    count = 0
     for key in dictionary:
-        count += 1
-        if count == 10:
-            break
         point = dictionary[key]
         try:
             address, (latitude, longitude) = geolocator.geocode(point)
