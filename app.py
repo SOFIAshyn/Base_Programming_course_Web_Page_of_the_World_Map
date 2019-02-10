@@ -132,8 +132,8 @@ def convert_to_coordinates(dictionary):
     >>> convert_to_coordinates({'Betrayal': 'New Orleans Louisiana USA'})
     {'Betrayal': (29.9536991119385, -90.077751159668)}
     """
-    geolocator =
-    Bing("AomOhTUAKsV-5fu4bzeuBtVlx5VeMi_M86P4gODXuCd6f7S2dquidP7Aj2xtDoS0")
+    geolocator = Bing(
+        "AomOhTUAKsV-5fu4bzeuBtVlx5VeMi_M86P4gODXuCd6f7S2dquidP7Aj2xtDoS0")
     dict_coordinates = {}
     count = 0
     for key in dictionary:
